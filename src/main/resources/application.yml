@@ -4,11 +4,14 @@ spring:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_oauth2
     username: root
     password: abcd1234
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
-      ddl-auto: update    # 개발용 only
-    show-sql: true
+      ddl-auto: none
+    show-sql: false
+    open-in-view: true
+  devtools:
+    add-properties: false
 
 security:
   oauth2:
@@ -22,5 +25,5 @@ logging:
   level:
     org:
       springframework:
-        web: DEBUG
-        security: DEBUG
+        web: INFO
+        security: INFO
