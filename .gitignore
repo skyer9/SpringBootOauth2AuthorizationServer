@@ -36,6 +36,8 @@ out/
 ### VS Code ###
 .vscode/
 
+### 키 파일제외
+
 my-oauth-jwt.jks
 my-oauth-jwt.private
 my-oauth-jwt.pub
