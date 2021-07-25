@@ -7,6 +7,14 @@
 
 [여기](https://www.skyer9.pe.kr/wordpress/?p=2367) 에 소스코드에 대한 설명이 있습니다.
 
+## 관련 리포
+
+- [인증서버](https://github.com/skyer9/SpringBootOauth2AuthorizationServer)
+
+- [리소스서비](https://github.com/skyer9/OAuth2ResourceServer)
+
+- [클라이언트](https://github.com/skyer9/OAuth2ClientApplication)
+
 ## License
 
 Apache 2.0 licensed
