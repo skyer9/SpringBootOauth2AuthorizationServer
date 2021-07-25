@@ -23,12 +23,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity security) throws Exception {
         security
                 .csrf().disable()
-                    .headers().frameOptions().disable()
-                    .and()
-                .authorizeRequests().antMatchers("/oauth/**", "/oauth2/callback", "/h2-console/*").permitAll()
-                    .and()
-                .formLogin()
-                    .and()
-                .httpBasic();
+                .headers().frameOptions().disable()
+                .and()
+                    .authorizeRequests().antMatchers("/oauth/**", "/oauth2/callback", "/h2-console/*").permitAll()
+                .and()
+                    .formLogin()
+                .and()
+                    .httpBasic();
     }
 }
