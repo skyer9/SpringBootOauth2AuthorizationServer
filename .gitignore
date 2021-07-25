@@ -35,3 +35,7 @@ out/
 
 ### VS Code ###
 .vscode/
+
+my-oauth-jwt.jks
+my-oauth-jwt.private
+my-oauth-jwt.pub
