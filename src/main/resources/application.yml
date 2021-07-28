@@ -3,7 +3,7 @@ spring:
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_oauth2
     username: root
-    password:
+    password: abcd1234
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
