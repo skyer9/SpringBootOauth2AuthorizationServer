@@ -23,6 +23,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.security:spring-security-jwt'
+    implementation 'com.google.guava:guava:20.0'
     implementation 'junit:junit:4.12'
 
     // 버전을 명시적으로 지정해야 한다(?)
