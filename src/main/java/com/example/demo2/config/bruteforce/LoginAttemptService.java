@@ -37,7 +37,6 @@ public class LoginAttemptService {
         }
         attempts++;
         attemptsCache.put(key, attempts);
-        // System.out.println(String.format("IP : %s, fail count : %d", key, attempts));
     }
 
     public boolean isBlocked(String key) {

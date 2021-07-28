@@ -25,12 +25,10 @@ public class CustomUserDetailService implements UserDetailsService {
     private final HttpServletRequest request;
 
     @Override
-    public UserDetails loadUserByUsername(String name) {
+    public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
         String ip = getClientIP();
-        // System.out.println(String.format("IP : %s", ip));
         if (loginAttemptService.isBlocked(ip)) {
-            // System.out.println("111111111");
-            throw new RuntimeException("blocked");
+            throw new UsernameNotFoundException("IP blocked");
         }
 
         User user = userRepository.findByUid(name).orElseThrow(() -> new UsernameNotFoundException("user is not exists"));
