@@ -1,5 +1,6 @@
 package com.example.demo2.config;
 
+import com.example.demo2.service.CustomJdbcClientDetailsService;
 import com.example.demo2.service.CustomUserDetailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,9 +35,12 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     private final CustomUserDetailService userDetailService;
 
+    private final CustomJdbcClientDetailsService clientDetailsService;
+
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.jdbc(dataSource).passwordEncoder(passwordEncoder);
+        // clients.jdbc(dataSource).passwordEncoder(passwordEncoder);
+        clients.withClientDetails(clientDetailsService);
     }
 
 //    // JDBC 방식
