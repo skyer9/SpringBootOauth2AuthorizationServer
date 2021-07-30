@@ -27,6 +27,7 @@ class UserRepositoryTest {
                 .uid("user")
                 .password(passwordEncoder.encode("pass"))
                 .name("user")
+                .email("skyer9@gmail.com")
                 .roles(Collections.singletonList("ROLE_USER"))
                 .build());
     }
