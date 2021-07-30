@@ -23,7 +23,8 @@ CREATE TABLE `tbl_user` (
     `name` VARCHAR(100) NOT NULL,
     `password` VARCHAR(100) NULL DEFAULT NULL,
     `provider` VARCHAR(100) NULL DEFAULT NULL,
-    `uid` VARCHAR(50) NOT NULL,
+    `uid` VARCHAR(100) NOT NULL,
+    `email` VARCHAR(100) NOT NULL,
     PRIMARY KEY (`msrl`),
     UNIQUE INDEX `UK_tbl_user_uid` (`uid`)
 )
