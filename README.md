@@ -11,7 +11,9 @@
 
 - [인증서버](https://github.com/skyer9/SpringBootOauth2AuthorizationServer)
 
-- [리소스서비](https://github.com/skyer9/OAuth2ResourceServer)
+- [프로필서비](https://github.com/skyer9/SpringBootOauth2ProfileServer)
+
+- [리소스서비](https://github.com/skyer9/SpringBootOauth2ResourceServer)
 
 - [클라이언트](https://github.com/skyer9/OAuth2ClientApplication)
 
