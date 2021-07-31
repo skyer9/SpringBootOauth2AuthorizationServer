@@ -31,7 +31,7 @@ public class CustomUserDetailService implements UserDetailsService {
             throw new UsernameNotFoundException("IP blocked");
         }
 
-        User user = userRepository.findByUid(name).orElseThrow(() -> new UsernameNotFoundException("user is not exists"));
+        User user = userRepository.findByEmail(name).orElseThrow(() -> new UsernameNotFoundException("user is not exists"));
         detailsChecker.check(user);
         return user;
     }

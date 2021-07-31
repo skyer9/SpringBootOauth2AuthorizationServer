@@ -19,26 +19,17 @@ insert into oauth_client_details(client_id, resource_ids,client_secret,scope,aut
 values('foo',null,'{bcrypt}$2a$10$wPb4BM6c/IqweuscNtQqgu0npxBn0i1qKbx3hGwJ26C3Wi5fHonuy','read,write','authorization_code,password,client_credentials,implicit,refresh_token','http://localhost:8080/test/auth','ROLE_USER',36000,50000,null,null);
 
 CREATE TABLE `tbl_user` (
-    `msrl` BIGINT(20) NOT NULL,
-    `name` VARCHAR(100) NOT NULL,
+    `user_id` BIGINT(20) NOT NULL,
+    `email` varchar(255) NOT NULL,
     `password` VARCHAR(100) NULL DEFAULT NULL,
-    `provider` VARCHAR(100) NULL DEFAULT NULL,
-    `uid` VARCHAR(100) NOT NULL,
-    `email` VARCHAR(100) NOT NULL,
-    PRIMARY KEY (`msrl`),
-    UNIQUE INDEX `UK_tbl_user_uid` (`uid`)
+    `first_name` VARCHAR(100) NOT NULL,
+    `last_name` VARCHAR(100) NOT NULL,
+    `roles` VARCHAR(255) NULL DEFAULT NULL,
+    PRIMARY KEY (`user_id`),
+    UNIQUE INDEX `UK_tbl_user_email` (`email`)
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB;
-
-CREATE TABLE `user_roles` (
-    `user_msrl` BIGINT(20) NOT NULL,
-    `roles` VARCHAR(255) NULL DEFAULT NULL,
-    INDEX `FK7ie1lfmnysdogxy1g91ernbkv` (`user_msrl`),
-    CONSTRAINT `FK_tbl_user_msrl` FOREIGN KEY (`user_msrl`) REFERENCES `tbl_user` (`msrl`)
-)
-COLLATE='utf8_general_ci'
-ENGINE=INNODB;
 
 create table IF NOT EXISTS oauth_client_token (
     token_id VARCHAR(256),

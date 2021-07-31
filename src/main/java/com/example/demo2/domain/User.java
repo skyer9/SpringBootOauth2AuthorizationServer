@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,37 +26,41 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long msrl;
+    private long userId;
 
-    @Column(nullable = false, unique = true, length = 50)
-    private String uid;
+    @Column(nullable = false, unique = true)
+    private String email;
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Column(length = 100)
+    @Column(nullable = false, length = 100)
     private String password;
 
     @Column(nullable = false, length = 100)
-    private String name;
+    private String firstName;
 
     @Column(nullable = false, length = 100)
-    private String email;
+    private String lastName;
 
-    @Column(length = 100)
-    private String provider;
+    @Column(nullable = false)
+    private String roles;
 
-    @ElementCollection(fetch = FetchType.EAGER)
+    public void setRoles(String roles) {
+        this.roles = roles;
+        this.rolesList = Arrays.asList(this.roles.split(","));
+    }
+
+    @Transient
     @Builder.Default
-    private List<String> roles = new ArrayList<>();
+    private List<String> rolesList = new ArrayList<>();
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.roles.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
+        return this.rolesList.stream().map(SimpleGrantedAuthority::new).collect(Collectors.toList());
     }
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Override
     public String getUsername() {
-        return this.uid;
+        return email;
     }
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)

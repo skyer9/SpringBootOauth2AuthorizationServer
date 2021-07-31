@@ -7,10 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.Collections;
-
-import static org.junit.Assert.*;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 class UserRepositoryTest {
@@ -24,11 +20,11 @@ class UserRepositoryTest {
     @Test
     public void createUser() {
         userRepository.save(User.builder()
-                .uid("user")
-                .password(passwordEncoder.encode("pass"))
-                .name("user")
                 .email("skyer9@gmail.com")
-                .roles(Collections.singletonList("ROLE_USER"))
+                .password(passwordEncoder.encode("pass"))
+                .firstName("San")
+                .lastName("Lee")
+                .roles("USER")
                 .build());
     }
 }
