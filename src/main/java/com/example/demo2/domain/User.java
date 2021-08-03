@@ -1,6 +1,7 @@
 package com.example.demo2.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,6 +17,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@JsonDeserialize(using = UserDeserializer.class)
 @Builder
 @Getter
 @NoArgsConstructor

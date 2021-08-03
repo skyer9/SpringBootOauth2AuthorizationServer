@@ -3,10 +3,12 @@ spring:
   redis:
     cluster:
       nodes: 127.0.01:6379
+  session:
+    store-type: redis
   datasource:
     url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_oauth2
     username: root
-    password: abcd1234
+    password:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -28,7 +30,7 @@ server:
       timeout: 43200m      # 60m * 24h * 30d
       cookie:
         max-age: 43200m    # 60m * 24h * 30d
-        name: SID
+        name: AUTHSID
         http-only: true
         # secure: true
 
